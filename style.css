@@ -1,0 +1,146 @@
+
+#btn-Section1, #btn-Section2
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#btn-Section1
+{
+	margin-bottom: 15px;
+}
+
+.btns
+{
+	color: white;
+	font-size: 17px;
+	font-weight: bold;
+	height: 30px;
+	width: 75px;
+	border: none;
+	text-align: center;
+	border-radius: 10%;
+	box-shadow: 0px 0px 10px -4px black;
+	margin-right:10px;
+}
+
+.btns:hover
+{
+	cursor: pointer;
+}
+
+#dualtypeChck
+{
+	width: 17px;
+	height: 17px;
+	font-weight: bold;
+}
+
+.normalBtn
+{
+	background-color: gray;
+	border: 2px solid #727272;
+}
+
+.fireBtn
+{
+	background-color: #EE8130;
+	border: 2px solid #cd6f29;
+}
+
+.waterBtn
+{
+	background-color: #2d69e8;
+	border: 2px solid #1455df;
+}
+
+.electricBtn
+{
+	background-color: #F7D02C;
+
+}
+
+.grassBtn
+{
+	background-color: #7AC74C;
+
+}
+
+.iceBtn
+{
+	background-color: #a2e0ff;
+
+}
+
+.fightingBtn
+{
+	background-color: #C22E28;
+
+}
+.poisonBtn
+{
+	background-color: #A33EA1;
+
+}
+.groundBtn
+{
+	background-color: #E2BF65;
+
+}
+.flyingBtn
+{
+	background-color: #89f;
+
+}
+.psychicBtn
+{
+	background-color: #F95587;
+
+}
+.bugBtn
+{
+	background-color: #A6B91A;
+
+}
+.rockBtn
+{
+	background-color: #B6A136;
+
+}
+.ghostBtn
+{
+	background-color: #735797;
+
+}
+.dragonBtn
+{
+	background-color: #6F35FC;
+
+}
+.darkBtn
+{
+	background-color: #705746;
+
+}
+.steelBtn
+{
+	background-color: #B7B7CE;
+
+}
+
+.fairyBtn
+{
+	background-color:#fdbafd;
+}
+
+
+#type-Result
+{
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+	width: 40px;
+	height: 40px;
+}
