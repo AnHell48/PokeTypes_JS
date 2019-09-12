@@ -108,16 +108,11 @@ function ShowResult(typeSelected)
   notVeryEffective = [];
   weakResult.innerHTML = strongResult.innerHTML = noEffectResult.innerHTML= notVeryResult.innerHTML= "";
 
-/* ----------------------------------> TODO <---------------------------------
-check if types on array; more than 2? then is dual no then single
-
-*/
-console.log(typeSelected);
 	for(var t = 0; t <= types.length -1;t++)
 	{
     if(dualtypesCheked)
     {
-      typeSelect = (typeChart[typeSelected[0]][t]) * (typeChart[typeSelected[1]][t]);
+      typeSelect = typeChart[typeSelected[0]][t] * typeChart[typeSelected[1]][t];
     }
     else {
       typeSelect = typeChart[typeSelected[0]][t];
@@ -148,7 +143,7 @@ console.log(typeSelected);
 			// super effective (weak against)
       superEffective.push(types[t]);
 		}
-		else // 5 or 25 or 10 are not very effective
+		else if (typeSelect != 1) // 5 or 25 or 10 are not very effective
 		{
 			// not very
       notVeryEffective.push(types[t]);
@@ -164,8 +159,8 @@ console.log(typeSelected);
   	 cTYPE NOT CHANGING ON THE TOP
 	*/
 
-  selectedType.innerHTML = "";
-  selectedType.innerHTML = types[typeSelected[0]];
+  // selectedType.innerHTML = "";
+  selectedType.innerHTML = (dualtypesCheked) ? types[typeSelected[0]] +"/"+types[typeSelected[1]] : types[typeSelected[0]] ;
   selectedType.className += types[typeSelected[0]]+"Btn";
 
   for(var n = 0; n < strongAgainst.length; n++)

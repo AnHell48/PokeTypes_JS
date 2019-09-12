@@ -1,7 +1,20 @@
-.wrap
+@media screen and (min-width:700px)
 {
-	margin: 0 auto;
+	.wrap
+	{
+		margin: 0 auto;
+		width: 75%;
+	}
+
 }
+@media screen and (max-width:699px)
+{
+	.wrap
+	{
+		width: 100%;
+	}
+}
+
 
 #btn-Section1, #btn-Section2
 {
@@ -149,15 +162,4 @@
 	margin: 0 auto;
 	width: 40px;
 	height: 40px;
-}
-
-
-
-@media screen and (max-width: 699px)
-{
-	.wrap
-	{
-		/* width: 100%;
-		background-color: grey; */
-	}
 }
