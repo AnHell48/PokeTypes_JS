@@ -1,5 +1,5 @@
 
-"use stric"
+// "use strict"
 var typeChart =[
                 /*Normal*/  [1,1,1,1,1,1,1,1,1,1,1,1,5,0,1,1,5,1],
                 /*Fire*/    [1,5,5,1,2,2,1,1,1,1,1,2,5,1,5,1,2,1],
@@ -27,7 +27,7 @@ var noEffect, superEffective,  notVeryEffective, strongAgainst;
 var btnSec1 = document.getElementById("btn-Section1");
 var btnSec2 = document.getElementById("btn-Section2");
 var dualTypes = [];
-var dualtypesCheked;
+var dualtypesCheked ;
 
 function CreateButtonRows()
 {
@@ -65,12 +65,6 @@ function CreateButton(number,arr)
 //and call single or dual function to get the data.
 function GetBtnID(btnID)
 {
-    /* ------------------------> TODO: <---------------------------------------
-    X  get btn id
-    X  get it's index
-    X  check if dual is chekched
-      send type to single or dual function
-  */
   // get the index of the value from the button pressed,
   //EX: water selected then the index on the array is 2
 	var typeID = types.indexOf(btnID);
@@ -91,7 +85,7 @@ function GetBtnID(btnID)
     if(dualTypes.length == 2)
     {
       // dual types
-      ShowResult(dualTypes());
+      ShowResult(dualTypes);
       dualTypes.length = 0;
     }
   }
@@ -101,6 +95,7 @@ function GetBtnID(btnID)
 
 function ShowResult(typeSelected)
 {
+  var typeselect = 0;
   var resultArea = document.getElementById("results");
   var selectedType = document.getElementById("type-Result");
   var strongResult = document.getElementById("strong");
@@ -117,22 +112,38 @@ function ShowResult(typeSelected)
 check if types on array; more than 2? then is dual no then single
 
 */
+console.log(typeSelected);
 	for(var t = 0; t <= types.length -1;t++)
 	{
+    if(dualtypesCheked)
+    {
+      typeSelect = (typeChart[typeSelected[0]][t]) * (typeChart[typeSelected[1]][t]);
+    }
+    else {
+      typeSelect = typeChart[typeSelected[0]][t];
+    }
+
     //check which are strong against selected
-    if(typeChart[typeSelected][t] == 2 || typeChart[typeSelected][t] == 4 )
+    if(typeSelect == 2 || typeSelect == 4 )
     {
       // super effective attacking
       strongAgainst.push(types[t]);
     }
 
+    if(dualtypesCheked)
+    {
+      typeSelect = typeChart[t][typeselected[0]] * typeChart[t][typeselected[1]];
+    }
+    else {
+      typeSelect =typeChart[t][typeSelected[0]];
+    }
 		//weak against selected
-		if(typeChart[t][typeSelected] == 0)
+		if(typeSelect == 0)
 		{
 			// no effect;
       noEffect.push(types[t]);
 		}
-		else if(typeChart[t][typeSelected] == 2 || typeChart[t][typeSelected] == 4 )
+		else if(typeSelect == 2 || typeSelect == 4 )
 		{
 			// super effective (weak against)
       superEffective.push(types[t]);
@@ -150,12 +161,12 @@ check if types on array; more than 2? then is dual no then single
   console.log("no effect: "+noEffect);
 
   	/* ------------------------> TODO: <---------------------------------------
-  	  clear the current result and append new one when selected a second time
-      delete and add new id attribute when another is selected
+  	 cTYPE NOT CHANGING ON THE TOP
 	*/
 
-  selectedType.innerHTML = types[typeSelected];
-  selectedType.className += types[typeSelected]+"Btn";
+  selectedType.innerHTML = "";
+  selectedType.innerHTML = types[typeSelected[0]];
+  selectedType.className += types[typeSelected[0]]+"Btn";
 
   for(var n = 0; n < strongAgainst.length; n++)
   {
