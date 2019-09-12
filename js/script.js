@@ -150,18 +150,15 @@ function ShowResult(typeSelected)
     }
 	}
 
-  console.log("good against: "+strongAgainst);
-  console.log("weak against: "+superEffective);
-  console.log("dont bother "+notVeryEffective);
-  console.log("no effect: "+noEffect);
-
   	/* ------------------------> TODO: <---------------------------------------
   	 cTYPE NOT CHANGING ON THE TOP
 	*/
 
-  // selectedType.innerHTML = "";
-  selectedType.innerHTML = (dualtypesCheked) ? types[typeSelected[0]] +"/"+types[typeSelected[1]] : types[typeSelected[0]] ;
-  selectedType.className += types[typeSelected[0]]+"Btn";
+  selectedType.innerHTML = "";
+  var tempText = (dualtypesCheked) ? types[typeSelected[0]] +" / "+types[typeSelected[1]] : types[typeSelected[0]];
+  var typeToSearch = document.createTextNode(tempText);
+  selectedType.appendChild(typeToSearch) ;
+  // selectedType.className += types[typeSelected[0]]+"Btn";
 
   for(var n = 0; n < strongAgainst.length; n++)
   {
