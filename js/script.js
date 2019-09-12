@@ -132,7 +132,7 @@ console.log(typeSelected);
 
     if(dualtypesCheked)
     {
-      typeSelect = typeChart[t][typeselected[0]] * typeChart[t][typeselected[1]];
+      typeSelect = typeChart[t][typeSelected[0]] * typeChart[t][typeSelected[1]];
     }
     else {
       typeSelect =typeChart[t][typeSelected[0]];
