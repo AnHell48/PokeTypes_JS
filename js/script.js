@@ -36,14 +36,15 @@ function CreateButtonRows()
 		var btn = CreateButton(bt,types);
 
     //create two rows of buttons
-		if(bt <= 8)
-		{
-			btnSec1.appendChild(btn);
-		}
-		else
-		{
-			btnSec2.appendChild(btn);
-		}
+		// if(bt <= 8)
+		// {
+		// 	btnSec1.appendChild(btn);
+		// }
+		// else
+		// {
+		// 	btnSec2.appendChild(btn);
+		// }
+    btnSec1.appendChild(btn);
 	}
 }
 
@@ -178,6 +179,7 @@ function ShowResult(typeSelected)
     typeColor2 = typeColor;
   }
 
+  document.querySelector("#results").setAttribute("style","visibility:visible;")
   selectedType.innerHTML = "";
   var tempText = (dualtypesCheked) ? types[typeSelected[0]] +" / "+types[typeSelected[1]] : types[typeSelected[0]];
   var typeToSearch = document.createTextNode(tempText);
@@ -185,31 +187,26 @@ function ShowResult(typeSelected)
   selectedType.appendChild(typeToSearch) ;
   selectedType.setAttribute("style","background:linear-gradient(90deg, "+typeColor+" 0%, "+typeColor2+" 100%);");
 
-
-  for(var n = 0; n < strongAgainst.length; n++)
+  ResultBoxes(strongAgainst,strongResult);
+  ResultBoxes(superEffective,weakResult);
+  ResultBoxes(notVeryEffective,notVeryResult);
+  if( noEffect.length != 0)
   {
-    strongResult.appendChild(CreateButton(n,strongAgainst));
+    document.querySelector("#no-effect-box").setAttribute("style","display:inherit;");
+    ResultBoxes(noEffect,noEffectResult);
   }
-
-  for(var n = 0; n < superEffective.length; n++)
+  else
   {
-    weakResult.appendChild(CreateButton(n,superEffective));
-  }
-
-  for(var n = 0; n < noEffect.length; n++)
-  {
-    noEffectResult.appendChild(CreateButton(n,noEffect));
-  }
-
-  for(var n = 0; n < notVeryEffective.length; n++)
-  {
-    notVeryResult.appendChild(CreateButton(n,notVeryEffective));
+      document.querySelector("#no-effect-box").setAttribute("style","display:none;");
   }
 }
 
-function DualTypes(type1, type2)
+function ResultBoxes(typeArray, resultID)
 {
-  console.log(type1 +""+ type2);
+  for(var n = 0; n < typeArray.length; n++)
+  {
+    resultID.appendChild(CreateButton(n,typeArray));
+  }
 }
 
 
