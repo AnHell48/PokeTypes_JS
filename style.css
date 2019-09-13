@@ -14,7 +14,6 @@
 
 body
 {
-	/* background-image: url(checker.jpg); */
 	font-family: 'pokemon_gbregular';
 	background-color: rgba(252, 255, 229, 0.49);
 }
@@ -198,12 +197,15 @@ hr
 
 footer
 {
+  position: absolute;
 	font-family: 'Arial';
 	background-color: #737373;
 	color: white;
 	width: 100%;
 	height: 100px;
 	margin-bottom: 0px;
+  bottom:0px;
+  left:0px;
 	/* ------------> TOdO <----------------
 	didve footer in 2 parts
   put legel thingy about pokemon? -- left side
@@ -257,22 +259,3 @@ footer
     font-size: 23px;
   }
 }
-
-/*	  DESIGN idea <------------------------
-	--background: image with a bit of transparency showing the types
-	like a ball with fire, leaf, water, etc (tcg energies)
-	then the page is more more "show" like make sure the background
-	dont take away from it.Maybe add a soft yellowish ? this will be
-	a box look alike on top (shadow?). IF cant find image then get the
-	tcg as reference -> trace and create them. (ball and inside the element
-	ball inside is white but the element and the edbe/border of the ball is the
-	type color then for the general background align them like rows but /)
-
-	--Font: pokemon font with blue border
-	the result boxes maybe put border around but faded with the same
-	font blue.
-
-	--Type Selected: try to do a gradiend between both color choosen like
-	ex: fire blue (fire part start with its color then blue on the other side
-	and it mix like in the middle)
-*/
