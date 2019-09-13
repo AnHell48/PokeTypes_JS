@@ -150,14 +150,32 @@ function ShowResult(typeSelected)
     }
 	}
 
-  	/* ------------------------> TODO: <---------------------------------------
-  	 cTYPE NOT CHANGING ON THE TOP
-	*/
+  // // TODO:
+  // assign this to the css of the result boc as gradient
+  var temp_btn = document.querySelector("."+types[typeSelected[0]]+"Btn");
+  var typeColor = window.getComputedStyle(temp_btn);
+  typeColor = typeColor.getPropertyValue("background-color");
+  var typeColor2 ;
+
+  if(dualtypesCheked)
+  {
+    var temp_btn2 = document.querySelector("."+types[typeSelected[1]]+"Btn");
+    typeColor2 = window.getComputedStyle(temp_btn2);
+    typeColor2 = typeColor2.getPropertyValue("background-color");
+  }
+  else {
+    typeColor2 = typeColor;
+  }
+
+  // console.log(typeColor.getPropertyValue("background-color"));
 
   selectedType.innerHTML = "";
   var tempText = (dualtypesCheked) ? types[typeSelected[0]] +" / "+types[typeSelected[1]] : types[typeSelected[0]];
   var typeToSearch = document.createTextNode(tempText);
+
   selectedType.appendChild(typeToSearch) ;
+  selectedType.setAttribute("style","background:linear-gradient(90deg, "+typeColor+" 0%, "+typeColor2+" 100%);");
+
   // selectedType.className += types[typeSelected[0]]+"Btn";
 
   for(var n = 0; n < strongAgainst.length; n++)
