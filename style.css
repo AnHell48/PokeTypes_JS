@@ -1,10 +1,15 @@
-@font-face {
+/*
+	Fonts:
+	https://www.fontspace.com/jackster-productions/pokemon-gb
+*/
+
+@font-face
+{
     font-family: 'pokemon_gbregular';
     src: url('content/pokemon_gb-webfont.woff2') format('woff2'),
          url('content/pokemon_gb-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 body
@@ -40,11 +45,11 @@ body
 
 .btns
 {
+	font-family: 'pokemon_gbregular';
 	color: white;
-	font-size: 17px;
-	font-weight: bold;
-	height: 30px;
-	width: 75px;
+	font-size: 13px;
+	height: 33px;
+	width: 115px;
 	border: none;
 	text-align: center;
 	border-radius: 10%;
@@ -71,96 +76,91 @@ body
 	background-color: gray;
 	border: 2px solid #727272;
 }
-
 .fireBtn
 {
 	background-color: #EE8130;
 	border: 2px solid #cd6f29;
 }
-
 .waterBtn
 {
 	background-color: #2d69e8;
 	border: 2px solid #1455df;
 }
-
 .electricBtn
 {
 	background-color: #F7D02C;
-
+	border: 2px solid #e0bf35;
 }
-
 .grassBtn
 {
 	background-color: #7AC74C;
-
+	border: 2px solid #6eb345;
 }
-
 .iceBtn
 {
 	background-color: #a2e0ff;
-
+  border: 2px solid #8cbfd8;
 }
-
 .fightingBtn
 {
 	background-color: #C22E28;
-
+	border: 2px solid #a52a24;
 }
 .poisonBtn
 {
 	background-color: #A33EA1;
-
+	border: 2px solid #8a3588;
 }
 .groundBtn
 {
 	background-color: #E2BF65;
-
+	border: 2px solid #bb9e53;
 }
 .flyingBtn
 {
 	background-color: #89f;
-
+	border: 2px solid #717fd4;
 }
 .psychicBtn
 {
 	background-color: #F95587;
-
+	border: 2px solid #c5436b;
 }
 .bugBtn
 {
 	background-color: #A6B91A;
-
+	border: 2px solid #819013;
 }
 .rockBtn
 {
 	background-color: #B6A136;
-
+	border: 2px solid #96852d;
 }
 .ghostBtn
 {
 	background-color: #735797;
-
+  border: 2px solid #4a3861;
 }
 .dragonBtn
 {
 	background-color: #6F35FC;
-
+	border: 2px solid #5f2fd4;
 }
 .darkBtn
 {
 	background-color: #705746;
-
+	border: 2px solid #42332a;
 }
 .steelBtn
 {
 	background-color: #B7B7CE;
-
+	border: 2px solid #9999ab;
 }
 
 .fairyBtn
 {
 	background-color:#fdbafd;
+	border: 2px solid #dea7de;
 }
 
 hr
@@ -174,8 +174,6 @@ hr
 {
 	margin-left: 30px;
 }
-
-
 
 #type-Result
 {
@@ -234,7 +232,18 @@ footer
 	{
 		width: 100%;
 		font-size: 17px;
+    margin-left: -25px;
 	}
+
+  .result-Box h3
+  {
+    font-size:16px;
+  }
+
+  #page-title
+  {
+    font-size: 23px;
+  }
 }
 
 /*	  DESIGN idea <------------------------

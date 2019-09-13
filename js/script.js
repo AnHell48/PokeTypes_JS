@@ -21,7 +21,6 @@ var typeChart =[
                 /*Fairy*/   [1,5,1,1,1,1,2,5,1,1,1,1,1,1,2,2,5,1]
             ];
 
-var typesCount = 18;
 var types = ["normal","fire","water","electric","grass","ice","fighting","poison","ground","flying","psychic","bug","rock","ghost","dragon","dark","steel","fairy"];
 var noEffect, superEffective,  notVeryEffective, strongAgainst;
 var btnSec1 = document.getElementById("btn-Section1");
@@ -32,7 +31,7 @@ var dualtypesCheked ;
 function CreateButtonRows()
 {
   // go trough the array and create each button using it's name as ID.
-	for(var bt = 0; bt < typesCount; bt++)
+	for(var bt = 0; bt < types.length; bt++)
 	{
 		var btn = CreateButton(bt,types);
 
@@ -52,7 +51,6 @@ function CreateButtonRows()
 function CreateButton(number,arr)
 {
   var newBtn = document.createElement('button');
-
   newBtn.classList.add("btns");
   newBtn.classList.add(arr[number]+"Btn");
   newBtn.setAttribute("OnClick",'GetBtnID("'+arr[number]+'")');
@@ -70,8 +68,10 @@ function GetBtnID(btnID)
 	var typeID = types.indexOf(btnID);
   dualtypesCheked = document.getElementById("dual-type-Chck").checked;
 
-// if the checkbox is not checked then we can continue
-//else if marked it means we need to wait till there's 2 types.
+  // document.querySelector("."+btnID+"Btn").setAttribute("style","color:black;");
+
+  // if the checkbox is not checked then we can continue
+  //else if marked it means we need to wait till there's 2 types.
   if(!dualtypesCheked)
   {
     dualTypes.push(typeID);
@@ -84,12 +84,19 @@ function GetBtnID(btnID)
     dualTypes.push(typeID);
     if(dualTypes.length == 2)
     {
-      // dual types
-      ShowResult(dualTypes);
-      dualTypes.length = 0;
+      // verify if both elements are not the same
+      if(dualTypes[0] != dualTypes[1])
+      {
+        // dual types
+        ShowResult(dualTypes);
+        dualTypes.length = 0;
+      }
+      else
+      {
+        dualTypes.pop(1);
+      }
     }
   }
-
 }
 
 
@@ -102,6 +109,7 @@ function ShowResult(typeSelected)
   var weakResult = document.getElementById("weak");
   var noEffectResult = document.getElementById("no-Effect");
   var notVeryResult = document.getElementById("not-Very");
+
   noEffect = [];
   superEffective = [];
   strongAgainst = [];
@@ -114,7 +122,8 @@ function ShowResult(typeSelected)
     {
       typeSelect = typeChart[typeSelected[0]][t] * typeChart[typeSelected[1]][t];
     }
-    else {
+    else
+    {
       typeSelect = typeChart[typeSelected[0]][t];
     }
 
@@ -129,9 +138,11 @@ function ShowResult(typeSelected)
     {
       typeSelect = typeChart[t][typeSelected[0]] * typeChart[t][typeSelected[1]];
     }
-    else {
+    else
+    {
       typeSelect =typeChart[t][typeSelected[0]];
     }
+
 		//weak against selected
 		if(typeSelect == 0)
 		{
@@ -150,8 +161,7 @@ function ShowResult(typeSelected)
     }
 	}
 
-  // // TODO:
-  // assign this to the css of the result boc as gradient
+  // get the color of each type to create the background color.
   var temp_btn = document.querySelector("."+types[typeSelected[0]]+"Btn");
   var typeColor = window.getComputedStyle(temp_btn);
   typeColor = typeColor.getPropertyValue("background-color");
@@ -164,10 +174,9 @@ function ShowResult(typeSelected)
     typeColor2 = typeColor2.getPropertyValue("background-color");
   }
   else {
+    //if there's no dual type then give both variables the same color.
     typeColor2 = typeColor;
   }
-
-  // console.log(typeColor.getPropertyValue("background-color"));
 
   selectedType.innerHTML = "";
   var tempText = (dualtypesCheked) ? types[typeSelected[0]] +" / "+types[typeSelected[1]] : types[typeSelected[0]];
@@ -176,7 +185,6 @@ function ShowResult(typeSelected)
   selectedType.appendChild(typeToSearch) ;
   selectedType.setAttribute("style","background:linear-gradient(90deg, "+typeColor+" 0%, "+typeColor2+" 100%);");
 
-  // selectedType.className += types[typeSelected[0]]+"Btn";
 
   for(var n = 0; n < strongAgainst.length; n++)
   {
