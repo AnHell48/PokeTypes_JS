@@ -1,5 +1,7 @@
-
-// "use strict"
+/*By: Angel A. Robles
+      12/September/2019
+*/
+"use strict"
 var typeChart =[
                 /*Normal*/  [1,1,1,1,1,1,1,1,1,1,1,1,5,0,1,1,5,1],
                 /*Fire*/    [1,5,5,1,2,2,1,1,1,1,1,2,5,1,5,1,2,1],
@@ -103,7 +105,7 @@ function GetBtnID(btnID)
 
 function ShowResult(typeSelected)
 {
-  var typeselect = 0;
+  var typeSelect = 0;
   var resultArea = document.getElementById("results");
   var selectedType = document.getElementById("type-Result");
   var strongResult = document.getElementById("strong");
@@ -190,22 +192,29 @@ function ShowResult(typeSelected)
   ResultBoxes(strongAgainst,strongResult);
   ResultBoxes(superEffective,weakResult);
   ResultBoxes(notVeryEffective,notVeryResult);
-  if( noEffect.length != 0)
-  {
-    document.querySelector("#no-effect-box").setAttribute("style","display:inherit;");
-    ResultBoxes(noEffect,noEffectResult);
-  }
-  else
-  {
-      document.querySelector("#no-effect-box").setAttribute("style","display:none;");
-  }
+  ResultBoxes(noEffect,noEffectResult);
+  // if( noEffect.length != 0)
+  // {
+  //   document.querySelector("#no-effect-box").setAttribute("style","display:inherit;");
+  // }
+  // else
+  // {
+  //     document.querySelector("#no-effect-box").setAttribute("style","display:none;");
+  // }
 }
 
 function ResultBoxes(typeArray, resultID)
 {
-  for(var n = 0; n < typeArray.length; n++)
+  if(typeArray.length != 0)
   {
-    resultID.appendChild(CreateButton(n,typeArray));
+    for(var n = 0; n < typeArray.length; n++)
+    {
+      resultID.appendChild(CreateButton(n,typeArray));
+    }
+  }
+  else
+  {
+      resultID.appendChild(document.createTextNode("None"));
   }
 }
 
