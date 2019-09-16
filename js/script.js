@@ -193,6 +193,7 @@ function ShowResult(typeSelected)
   ResultBoxes(superEffective,weakResult);
   ResultBoxes(notVeryEffective,notVeryResult);
   ResultBoxes(noEffect,noEffectResult);
+  resultArea.scrollIntoView({behavior: 'smooth' });
   // if( noEffect.length != 0)
   // {
   //   document.querySelector("#no-effect-box").setAttribute("style","display:inherit;");
