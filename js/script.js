@@ -193,8 +193,9 @@ function ShowResult(typeSelected)
   ResultBoxes(superEffective,weakResult);
   ResultBoxes(notVeryEffective,notVeryResult);
   ResultBoxes(noEffect,noEffectResult);
-  // resultArea.scrollIntoView({behavior: 'smooth' });
-  ScrollToElement(resultArea);
+
+  resultArea.scrollIntoView({behavior: 'smooth' });
+  // ScrollToElement(resultArea);
   // if( noEffect.length != 0)
   // {
   //   document.querySelector("#no-effect-box").setAttribute("style","display:inherit;");
@@ -204,7 +205,10 @@ function ShowResult(typeSelected)
   //     document.querySelector("#no-effect-box").setAttribute("style","display:none;");
   // }
   
-  document.getElementById("footer").style.bottom = null;
+  // keep footer on place
+  //document.querySelector("footer").style.bottom = "";
+  document.querySelector("footer").removeAttribute("style");
+  
 }
 
 function ResultBoxes(typeArray, resultID)
@@ -222,12 +226,6 @@ function ResultBoxes(typeArray, resultID)
   }
 }
 
-function ScrollToElement(element)
-{
-  //add distance between the element top part
-  var elementOffset = element.getBoundingClientRect().top - 20;
 
-  window.scrollTo({top: elementOffset, behavior:"smooth"});
-}
 
 CreateButtonRows();
