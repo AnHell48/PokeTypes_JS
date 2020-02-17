@@ -29,7 +29,6 @@ var btnSec1 = document.getElementById("btn-Section1");
 var btnSec2 = document.getElementById("btn-Section2");
 var dualTypes = [];
 var dualtypesCheked ;
-var footer = document.querySelector("footer");
 
 function CreateButtonRows()
 {
@@ -205,7 +204,7 @@ function ShowResult(typeSelected)
   //     document.querySelector("#no-effect-box").setAttribute("style","display:none;");
   // }
   
-  footer.style.bottom = null;
+  document.getElementById("footer").style.bottom = null;
 }
 
 function ResultBoxes(typeArray, resultID)
