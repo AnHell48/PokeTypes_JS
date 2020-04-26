@@ -27,6 +27,7 @@ var types = ["normal","fire","water","electric","grass","ice","fighting","poison
 var noEffect, superEffective,  notVeryEffective, strongAgainst;
 var btnSec1 = document.getElementById("btn-Section1");
 var btnSec2 = document.getElementById("btn-Section2");
+var btnCheck = document.getElementById("dual-type-Chck");
 var dualTypes = [];
 var dualtypesCheked ;
 
@@ -69,7 +70,7 @@ function GetBtnID(btnID)
   // get the index of the value from the button pressed,
   //EX: water selected then the index on the array is 2
 	var typeID = types.indexOf(btnID);
-  dualtypesCheked = document.getElementById("dual-type-Chck").checked;
+  dualtypesCheked = btnCheck.checked;
 
   // document.querySelector("."+btnID+"Btn").setAttribute("style","color:black;");
 
@@ -77,6 +78,7 @@ function GetBtnID(btnID)
   //else if marked it means we need to wait till there's 2 types.
   if(!dualtypesCheked)
   {
+    console.log("results");
     dualTypes.push(typeID);
     // single type
     ShowResult(dualTypes);
@@ -204,11 +206,11 @@ function ShowResult(typeSelected)
   // {
   //     document.querySelector("#no-effect-box").setAttribute("style","display:none;");
   // }
-  
+
   // keep footer on place
   //document.querySelector("footer").style.bottom = "";
   document.querySelector("footer").removeAttribute("style");
-  
+
 }
 
 function ResultBoxes(typeArray, resultID)
