@@ -125,7 +125,6 @@ function Request()
 
 function Response()
 {
-  console.log("response: "+this.responseText);
   if(this.readyState == 4 && this.status == 200)
   {
     let respObj = JSON.parse(this.responseText);
