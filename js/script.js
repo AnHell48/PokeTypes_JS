@@ -78,7 +78,7 @@ function GetBtnID(btnID)
   //else if marked it means we need to wait till there's 2 types.
   if(!dualtypesCheked)
   {
-    console.log("results");
+  //  console.log("results");
     dualTypes.push(typeID);
     // single type
     ShowResult(dualTypes);
@@ -206,11 +206,6 @@ function ShowResult(typeSelected)
   // {
   //     document.querySelector("#no-effect-box").setAttribute("style","display:none;");
   // }
-
-  // keep footer on place
-  //document.querySelector("footer").style.bottom = "";
-  document.querySelector("footer").removeAttribute("style");
-
 }
 
 function ResultBoxes(typeArray, resultID)
