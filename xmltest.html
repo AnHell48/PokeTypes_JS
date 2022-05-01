@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="content-1"></p>
+    
+    <script>
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString("test", "text/xml");
+        var firstP = document.getElementById("content-1").innerHTML = xmlDoc.getElementsByTagName("note")[0].childNodes[0].nodeValue;
+    </script>
+</body>
+</html>
