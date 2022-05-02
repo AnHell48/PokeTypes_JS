@@ -7,12 +7,69 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="content-1"></p>
+    <div>
+        <h3 id="project-name"></h3>
+
+        <p id="project-description"></p>
+
+        <div id="project-imgs"></div>
+    </div>
     
     <script>
-        var parser = new DOMParser();
-        var xmlDoc = parser.parseFromString("test", "text/xml");
-        var firstP = document.getElementById("content-1").innerHTML = xmlDoc.getElementsByTagName("note")[0].childNodes[0].nodeValue;
+        let xmlDoc;
+        GetXML();
+
+        function GetXML()
+        {
+            let xmlFile = "content/idk.xml";
+            let xhttp = new XMLHttpRequest();
+            
+            xhttp.onreadystatechange = function()
+            {
+                if(this.readyState == 4 && this.status == 200)
+                {
+                    LoadPageContent(this);
+                }
+            };
+            xhttp.open("GET", xmlFile, true);
+            xhttp.send();
+        }
+
+        function LoadXMLData(xml)
+        {
+            let parser = new DOMParser();
+            // let xmlDoc = xml.responseXML;
+            xmlDoc = parser.parseFromString(xml.responseXML, "text/xml");
+            
+
+            let xmlTagContent = xmlDoc.getElementsByTagName("3D");
+             
+            for (let t = 0; t < xmlTagContent.length; t++) 
+            {
+                console.log(xmlTagContent);
+                console.log(xmlTagContent[t].childNodes[0].nodeValue);
+            }
+        }
+        
+        function LoadPageContent(tagToLoad, projectName)
+        {            
+            let pName = document.getElementById("project-name").innerHTML = xmlDoc.getElementsByTagName("note")[0].childNodes[0].nodeValue;
+            //tagToLoad is the 3D, Games,etc.
+            //tag content as in the content of general, games, 3D, etc.
+            let xmlTagContent = xmlDoc.getElementsByTagName(tagToLoad);
+             
+            for (let t = 0; t < xmlTagContent.length; t++) 
+            {
+                console.log(xmlTagContent[t].childNodes[0].nodeValue);
+                //if the first tag inside
+                // if(xmlTagContent[t].childNodes[0].nodeValue == projectName)
+                
+            }
+
+        }
+
+
+
     </script>
 </body>
 </html>
