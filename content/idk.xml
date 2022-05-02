@@ -8,7 +8,7 @@
             <imgssrc>test.png,test2.png,sky.png</imgssrc>
         </Project>
     </Games>
-    <Design>
+    <Games>
         <Project>
             <category>3D</category>
             <name>Project: Prueba</name>
@@ -21,5 +21,5 @@
             <desc>some awesome bottle.</desc>
             <imgssrc>bottleside.png,bottlefront.jpg</imgssrc>
         </Project>
-    </Design>
+    </Games>
 </PortfContent>
