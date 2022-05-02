@@ -16,19 +16,19 @@
     </div>
     
     <script>
-        let xmlDoc;
+        var xmlDoc;
         GetXML();
 
         function GetXML()
         {
-            let xmlFile = "content/idk.xml";
+            let xmlFile = "https://raw.githubusercontent.com/AnHell48/PokeTypes_JS/master/content/idk.xml";//"content/idk.xml";
             let xhttp = new XMLHttpRequest();
             
             xhttp.onreadystatechange = function()
             {
                 if(this.readyState == 4 && this.status == 200)
                 {
-                    LoadPageContent(this);
+                    LoadXMLData(this.response);
                 }
             };
             xhttp.open("GET", xmlFile, true);
@@ -38,38 +38,36 @@
         function LoadXMLData(xml)
         {
             let parser = new DOMParser();
-            // let xmlDoc = xml.responseXML;
-            xmlDoc = parser.parseFromString(xml.responseXML, "text/xml");
             
-
-            let xmlTagContent = xmlDoc.getElementsByTagName("Projects");
-             console.log(xmlTagContent.length);
+            xmlDoc = parser.parseFromString(xml, "text/xml");
+            
+            let xmlTagContent = xmlDoc.getElementsByTagName("Design")[0].getElementsByTagName("Project");
+            
             for (let t = 0; t < xmlTagContent.length; t++) 
             {
-                console.log(xmlTagContent[t].innerHTML);
-                console.log(xmlTagContent[t].childNodes[1].innerHTML);
+                console.log(xmlTagContent[t].getElementsByTagName("name")[0].childNodes[0].nodeValue  );
+                console.log(xmlTagContent[t].getElementsByTagName("desc")[0].childNodes[0].nodeValue  );
+                console.log(xmlTagContent[t].getElementsByTagName("imgssrc")[0].childNodes[0].nodeValue);
+                console.log("------------------------------------------");
             }
         }
         
-        function LoadPageContent(tagToLoad, projectName)
-        {            
-            let pName = document.getElementById("project-name").innerHTML = xmlDoc.getElementsByTagName("note")[0].childNodes[0].nodeValue;
-            //tagToLoad is the 3D, Games,etc.
-            //tag content as in the content of general, games, 3D, etc.
-            let xmlTagContent = xmlDoc.getElementsByTagName(tagToLoad);
+        // function LoadPageContent(tagToLoad, projectName)
+        // {            
+        //     let pName = document.getElementById("project-name").innerHTML;
+        //     //tagToLoad is the 3D, Games,etc.
+        //     //tag content as in the content of general, games, 3D, etc.
+        //     let xmlTagContent = xmlDoc.getElementsByTagName(tagToLoad);
              
-            for (let t = 0; t < xmlTagContent.length; t++) 
-            {
-                console.log(xmlTagContent[t].childNodes[0].nodeValue);
-                //if the first tag inside
-                // if(xmlTagContent[t].childNodes[0].nodeValue == projectName)
+        //     for (let t = 0; t < xmlTagContent.length; t++) 
+        //     {
+        //         console.log(xmlTagContent[t].childNodes[0].nodeValue);
+        //         //if the first tag inside
+        //         // if(xmlTagContent[t].childNodes[0].nodeValue == projectName)
                 
-            }
+        //     }
 
-        }
-
-
-
+        // }
     </script>
 </body>
 </html>
