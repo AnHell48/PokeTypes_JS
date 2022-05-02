@@ -8,7 +8,7 @@
             <imgssrc>test.png,test2.png,sky.png</imgssrc>
         </Project>
     </Games>
-    <3d>
+    <3D>
         <Project>
             <category>3D</category>
             <name>Project: Prueba</name>
