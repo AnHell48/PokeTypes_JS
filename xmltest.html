@@ -42,12 +42,12 @@
             xmlDoc = parser.parseFromString(xml.responseXML, "text/xml");
             
 
-            let xmlTagContent = xmlDoc.getElementsByTagName("3D");
-             
+            let xmlTagContent = xmlDoc.getElementsByTagName("projects");
+             console.log(xmlTagContent.length);
             for (let t = 0; t < xmlTagContent.length; t++) 
             {
-                console.log(xmlTagContent);
-                console.log(xmlTagContent[t].childNodes[0].nodeValue);
+                console.log(xmlTagContent[t].innerHTML);
+                console.log(xmlTagContent[t].childNodes[1].innerHTML);
             }
         }
         
