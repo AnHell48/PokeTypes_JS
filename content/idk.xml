@@ -1,7 +1,7 @@
 <portfContent>
     <General>general content.....</General>
     <Games>game should appear here ...</Games>
-    <3D>
+    <Design>
         <Project>
             <name>Project: Test</name>
             <desc>This is a blablablabla. Made in blablablablabla.<desc>
@@ -12,5 +12,5 @@
             <desc>BLAblablbala due to x and y this is a blablabla.<desc>
             <imgssrc>reee.png,joeslide.jpg</imgssrc>
         </Project>
-    </3D>
+    </Design>
 </portfContent>
