@@ -42,7 +42,7 @@
             xmlDoc = parser.parseFromString(xml.responseXML, "text/xml");
             
 
-            let xmlTagContent = xmlDoc.getElementsByTagName("projects");
+            let xmlTagContent = xmlDoc.getElementsByTagName("Projects");
              console.log(xmlTagContent.length);
             for (let t = 0; t < xmlTagContent.length; t++) 
             {
