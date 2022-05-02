@@ -1,12 +1,16 @@
-<portfContent>
+<?xml version="1.0" encoding="utf-8"?>
+<PortfContent>
+    <Games>            
         <Project>
             <category>Game</category>
             <name>Project: Test</name>
             <desc>This is a blablablabla. Made in blablablablabla.<desc>
             <imgssrc>test.png,test2.png,sky.png</imgssrc>
         </Project>
+    </Games>
+    <3d>
         <Project>
-            <category>Game</category>
+            <category>3D</category>
             <name>Project: Prueba</name>
             <desc>BLAblablbala due to x and y this is a blablabla.<desc>
             <imgssrc>reee.png,joeslide.jpg</imgssrc>
@@ -18,4 +22,4 @@
             <imgssrc>bottleside.png,bottlefront.jpg</imgssrc>
         </Project>
     </3D>
-</portfContent>
+</PortfContent>
