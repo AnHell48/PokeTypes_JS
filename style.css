@@ -275,6 +275,25 @@ hr
   padding-bottom: 10px;
 }
 
+/*dialog*/
+dialog 
+  {
+	background-color:  rgb(252, 255, 229);
+	/* margin-top: 180px; */
+	border: 2px solid rgb(48, 48, 48);
+	border-radius: 5px;
+	position: fixed;
+    z-index: 1;
+    left: 0;
+    bottom: 300px;	
+    text-align: center;
+  }
+  
+  dialog::backdrop
+  {
+    background-color: rgb(128 128 128 / 50%);
+  }
+
 /* higher than 700 */
 @media only screen and (min-width:700px)
 {
@@ -305,7 +324,7 @@ hr
 	{
 		width: 100%;
 		font-size: 17px;
-    margin-left: -25px;
+    	margin-left: -25px;
 	}
 
   .result-Box h3
@@ -320,6 +339,11 @@ hr
   #page-title
   {
     font-size: 23px;
+  }
+
+  dialog
+  {
+	width: 80%;
   }
 
 }

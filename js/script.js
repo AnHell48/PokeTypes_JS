@@ -223,6 +223,4 @@ function ResultBoxes(typeArray, resultID)
   }
 }
 
-
-
 CreateButtonRows();
