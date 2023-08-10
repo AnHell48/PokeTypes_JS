@@ -7,6 +7,8 @@ var popup = document.getElementById('loading-popup');
 var pokemonName = "--";
 
 searchBtn.addEventListener("click",  Request);
+searchBox.addEventListener("keyup",function(e) {
+ if(e.key == "Enter" ) {Request()} });
 
 //API doesn't contain the latest generation so I created a array which contains this data. If the name is not on it then
 //this will do the request.
@@ -53,7 +55,7 @@ function PKMData(responseOBJ)
     pkmType += pkmObj.types[t].type.name;
     GetBtnID(pkmObj.types[t].type.name);
   }
-  
+
   popup.close();
   // console.log(pkmType);
 }
